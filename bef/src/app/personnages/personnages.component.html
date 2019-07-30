@@ -1,0 +1,32 @@
+<h1 class="text-center">Ultimate Power Team</h1>
+	
+<div class="container">
+  <div class="row justify-content-center">
+  
+    <div *ngFor="let personnage of personnages">
+
+      <div class="col-11 card largeur my-3 mx-2 bg-light">
+        <div class="card bg-success mt-3">
+          <div class="text-center font-weight-bold">{{personnage.nom}}</div>
+        </div>
+        <div>
+          <h3 class="text-center mt-2">{{personnage.nom}}</h3>
+          <p class="text-center text-danger">{{personnage.role}}</p>
+        </div>
+        
+        <div class="row justify-content-between font-weight-bold mb-2">
+          <p class="ml-3">{{personnage.pays}}</p>
+          <button
+            class="btn btn-warning btn-sm mr-3"
+            (click)="onDelete(personnage)"
+          >
+            Adieu
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
