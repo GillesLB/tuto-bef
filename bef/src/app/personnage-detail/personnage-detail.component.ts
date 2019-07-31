@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { Personnages } from 'src/app/modeles/personnages.model';
+import { PersonnagesService } from 'src/app/services/personnages.service';
 
 @Component({
   selector: 'app-personnage-detail',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonnageDetailComponent implements OnInit {
 
-  constructor() { }
+  personnages: Personnages[] = [];
+  personnage: Personnages;
+  id: string;
+
+  constructor(
+    private personnagesService: PersonnagesService,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {
+    this.personnages = this.personnagesService.personnages;
+  }
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.personnage = this.personnages[+this.id - 1];
+  }
+
+  goToDashboard() {
+    this.router.navigate(['personnages']);
   }
 
 }

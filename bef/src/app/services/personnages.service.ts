@@ -19,4 +19,15 @@ export class PersonnagesService {
 
   constructor() { }
 
+  delete(personnage) {
+  const personnageASupprimer = this.personnages.findIndex(
+    (persoIndex) => {
+      if (persoIndex === personnage) {
+        return true;
+      }
+    }
+  );
+  this.personnages.splice(personnageASupprimer, 1);
+  }
+
 }

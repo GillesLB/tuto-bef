@@ -21,4 +21,7 @@ export class PersonnagesComponent implements OnInit {
   ngOnInit() {
   }
 
+  onDelete(personnage) {
+    this.personnagesService.delete(personnage);
+  }
 }

@@ -6,8 +6,14 @@
     <div *ngFor="let personnage of personnages">
 
       <div class="col-11 card largeur my-3 mx-2 bg-light">
-        <div class="card bg-success mt-3">
-          <div class="text-center font-weight-bold">{{personnage.nom}}</div>
+        <div class="row justify-content-center">
+          <a [routerLink]="['/personnages', personnage.id]">
+            <button
+              class="btn btn-success font-weight-bold mt-3"
+            >
+              Super héros n°{{personnage.id}} <i class="fa fa-address-card"></i>
+            </button>
+        </a>
         </div>
         <div>
           <h3 class="text-center mt-2">{{personnage.nom}}</h3>
